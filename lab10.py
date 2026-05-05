@@ -49,3 +49,16 @@ plt.ylabel('Principal Component 2')
 plt.legend(title='Cluster')
 plt.grid(True)
 plt.show()
+
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=df, x='PC1', y='PC2', hue='Cluster', palette='Set1', s=100, edgecolor='black', alpha=0.7)
+
+centers = pca.transform(kmeans.cluster_centers_)
+plt.scatter(centers[:, 0], centers[:, 1], s=200, c='red', marker='x', label='Centroids')
+
+plt.title('K-Means Clustering with Centroids')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.legend(title='Cluster')
+plt.grid(True)
+plt.show()
